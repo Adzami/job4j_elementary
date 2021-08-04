@@ -13,9 +13,9 @@ public class SortSelected {
     }
 
     private static int[] swap(int[] array, int index1, int index2) {
-        array[index1] += array[index2];
-        array[index2] = array[index1] - array[index2];
-        array[index1] = array[index1] - array[index2];
+        int trashTmp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = trashTmp;
         return array;
     }
 }
