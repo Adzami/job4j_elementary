@@ -6,20 +6,14 @@ public class Defragment {
             if (array[index] == null) {
                 for (int j = index + 1; j < array.length; j++) {
                     if (array[j] != null) {
-                        swap(array, index, j);
+                        array[index] = array[j];
+                        array[j] = null;
                         break;
                     }
                 }
             }
             System.out.print(array[index] + " ");
         }
-        return array;
-    }
-
-    private static String[] swap(String[] array, int index1, int index2) {
-        String tmp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = tmp;
         return array;
     }
 
