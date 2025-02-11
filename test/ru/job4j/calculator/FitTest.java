@@ -1,23 +1,33 @@
 package ru.job4j.calculator;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
-public class FitTest {
+class FitTest {
+
     @Test
-    public void whenMan180Then92() {
-        short in = 180;
-        double expected = 92;
-        double out = Fit.manWeight(in);
-        Assert.assertEquals(expected, out, 0.01);
+    void whenMaleHeight180ThenIdealWeight92() {
+        double result = Fit.idealWeight(180, Gender.MALE);
+        assertThat(result).isEqualTo(92.0, withPrecision(0.01));
     }
 
     @Test
-    public void whenWoman170Then69() {
-        short in = 170;
-        double expected = 69;
-        double out = Fit.womanWeight(in);
-        Assert.assertEquals(expected, out, 0.01);
+    void whenFemaleHeight170ThenIdealWeight69() {
+        double result = Fit.idealWeight(170, Gender.FEMALE);
+        assertThat(result).isEqualTo(69.0, withPrecision(0.01));
     }
 
+    @Test
+    void whenHeightIsZeroThenThrowException() {
+        assertThatThrownBy(() -> Fit.idealWeight(0, Gender.MALE))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Height must be greater than zero");
+    }
+
+    @Test
+    void whenHeightIsNegativeThenThrowException() {
+        assertThatThrownBy(() -> Fit.idealWeight(-170, Gender.FEMALE))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Height must be greater than zero");
+    }
 }
