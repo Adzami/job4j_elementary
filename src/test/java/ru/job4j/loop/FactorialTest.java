@@ -6,11 +6,11 @@ import org.junit.Test;
 public class FactorialTest {
     @Test
     public void whenCalculateFactorialForFiveThenOneHundredTwenty() {
-        Assert.assertEquals(Factorial.calc(5), 120);
+        Assert.assertEquals(120, Factorial.calc(5));
     }
 
     @Test
     public void whenCalculateFactorialForZeroThenOne() {
-        Assert.assertEquals(Factorial.calc(0), 1);
+        Assert.assertEquals(1, Factorial.calc(0));
     }
 }
