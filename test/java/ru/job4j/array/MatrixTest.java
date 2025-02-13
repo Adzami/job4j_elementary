@@ -3,8 +3,6 @@ package ru.job4j.array;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class MatrixTest {
     @Test
     public void when2on2() {

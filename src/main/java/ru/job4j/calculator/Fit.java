@@ -7,10 +7,11 @@ public class Fit {
         }
 
         int base;
-        switch (gender) {
-            case MALE -> base = 100;
-            case FEMALE -> base = 110;
-            default -> throw new IllegalStateException("Unexpected value: " + gender);
+
+        if (gender.toString().equals("MALE")) {
+            base = 100;
+        } else {
+            base = 110;
         }
 
         return (height - base) * 1.15;
